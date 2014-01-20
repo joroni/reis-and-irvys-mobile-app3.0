@@ -38,3 +38,31 @@ function easystreet3_info() {
   catch (error) { drupalgap_error(error); }
 }
 
+/**
+ * Implements hook_menu().
+ */
+function easystreet3_menu() {
+  var items = {
+
+    /* ... other items ... */
+
+    food_order:{
+      title:'Order',
+      page_callback:'my_module_order_food_page',
+      region:{
+        name:'header',
+        options:{
+          attributes:{
+            'data-icon':'add',
+            'class':'ui-btn-right'
+          }
+        },
+        pages:{
+          value:['food'],
+          mode:'include',
+        }
+      }
+    },
+  };
+  return items;
+}
