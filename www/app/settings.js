@@ -117,8 +117,39 @@ drupalgap.settings.menus['main_menu'] = {
 /****************************************|
  * Blocks - http://drupalgap.org/node/83 |
  ****************************************/
-drupalgap.settings.blocks = {};
 
+ // Theme
+drupalgap.settings.theme = 'my_theme';
+ 
+ drupalgap.settings.blocks.my_theme = {
+  top:{
+    logo:{} /* drupalgap's logo system block */
+  },
+  header:{
+    title:{} /* drupalgap's title system block */
+  },
+  navigation:{
+    main_menu:{} /* drupalgap's main menu system block */
+  },
+  content:{
+    main:{} /* drupalgap's main system block, used to display page content */
+  },
+  footer:{
+    powered_by:{} /* drupalgap's 'powered by' block */
+  }
+};
+
+drupalgap.settings.blocks.my_theme = {
+  /* ... */
+  footer:{
+    my_custom_block:{},
+   /*  powered_by:{}, delete this line */
+  }
+  /* ... */
+};
+
+drupalgap.settings.blocks = {};
+ 
 // Easy Street 3 Theme Blocks
 drupalgap.settings.blocks.easystreet3 = {
   header:{
@@ -155,6 +186,37 @@ drupalgap.settings.blocks.easystreet3 = {
   }
 };
 
+
+drupalgap.settings.blocks.my_theme = {
+
+  /* ... */
+
+  /* Content Region */
+  content:{
+
+    /* ... */
+
+    /* My Custom Block */
+    my_custom_block:{
+
+      /* ... other block settings ... */
+
+      pages:{
+        value:['user/login', 'user/register'],
+        mode:'include'
+      },
+
+      /* ... other block settings ... */
+
+    },
+
+    /* ... */
+
+  },
+
+  /* ... */
+
+};
 /****************************************************|
  * Region Menu Links - http://drupalgap.org/node/173 |
  ****************************************************/
