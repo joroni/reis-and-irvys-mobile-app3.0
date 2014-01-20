@@ -34,7 +34,7 @@ drupalgap.settings.front = 'dashboard';
 drupalgap.settings.theme = 'easystreet3';
 
 // Logo
-drupalgap.settings.logo = 'themes/easystreet3/images/drupalgap.jpg';
+drupalgap.settings.logo = 'themes/easystreet3/images/logo.png';
 
 // Language
 drupalgap.settings.language = 'und';
@@ -151,7 +151,7 @@ drupalgap.settings.blocks.easystreet3 = {
     main:{}
   },
   footer:{
-    powered_by:{}
+   /* powered_by:{}*/
   }
 };
 
