@@ -25,16 +25,16 @@ drupalgap.settings.clean_urls = false; // Setting to false is recommended.
  *************/
 
 // App Title
-drupalgap.settings.title = 'Reis and Irvys';
+drupalgap.settings.title = 'DrupalGap';
  
 // App Front Page
-drupalgap.settings.front = 'frontpage';
+drupalgap.settings.front = 'dashboard';
 
 // Theme
-drupalgap.settings.theme = 'custom';
+drupalgap.settings.theme = 'easystreet3';
 
 // Logo
-drupalgap.settings.logo = 'themes/custom/logo.png';
+drupalgap.settings.logo = 'themes/easystreet3/images/drupalgap.jpg';
 
 // Language
 drupalgap.settings.language = 'und';
@@ -53,26 +53,11 @@ drupalgap.settings.loading = {
 // Contributed Modules - www/app/modules
 drupalgap.modules.contrib = [
   /*{name:'example'},*/
-  {name:'views_datasource'},
-  {name:'user'},
-  {name:'taxonomy'},
-  {name:'system'},
-  {name:'services'},
-  {name:'node'},
-  {name:'mvc'},
-  {name:'menu'},
-  {name:'field'},
-  {name:'entity'},
-  {name:'comment'},
-  {name:'block'},
-  {name:'api'}
 ];
 
 // Custom Modules - www/app/modules/custom
 drupalgap.modules.custom = [
   /*{name:'example'},*/
-  {name:'views'},
-  {name:'ctools'}
 ];
 
 /***************************************|
@@ -181,7 +166,7 @@ drupalgap.settings.menus.regions['header'] = {
     /* Home Button */
     {
       title:'Home',
-      path:'/',
+      path:'',
       options:{
         attributes:{
           "data-icon":"home",
