@@ -158,7 +158,7 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
 
     {title:'Logout','path':'user/logout'},
 	
-	{title:'Vote','path':'node/2',
+	{title:'Vote','path':'http://m.reisandirvys.com/poll/011914#overlay-context=node/2',
     options:{
       InAppBrowser:true
     }
