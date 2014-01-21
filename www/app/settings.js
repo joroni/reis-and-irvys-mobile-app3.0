@@ -156,7 +156,7 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
 
     {title:'My Account','path':'user'},
 
-   {title:'Vote','path':'http://http://m.reisandirvys.com/poll',
+   {title:'Vote','path':'http://m.reisandirvys.com/poll',
    options:{
       InAppBrowser:true
     }
