@@ -156,13 +156,17 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
 
     {title:'My Account','path':'user'},
 
-    {title:'Logout','path':'user/logout'},
-	
-	{title:'Vote','path':'http://m.reisandirvys.com/poll/011914#overlay-context=node/2',
+   {title:'Vote','path':'/poll',
+   options:{
+      InAppBrowser:true
+    }
+ 	},
+	{title:'Vote','path':'/node/2',
     options:{
       InAppBrowser:true
     }
-  }
+ 	},
+	{title:'Logout','path':'user/logout'}
   ]
 
 };
@@ -478,3 +482,21 @@ drupalgap.settings.cache.entity = {
 
 
 
+/**
+ * Pageshow callback.
+ */
+function poll_custom_page_pageshow() {
+  drupalgap.views_datasource.call({
+      'path':'poll', /* the path to the View's JSON page display */
+      'success':function(data){
+        if (data.nodes.length > 0) {
+          var items = [];
+          $.each(data.nodes, function(index, object){
+              var node = object.node;
+              items.push(l(node.title, 'node/' + node.nid));
+          });
+          drupalgap_item_list_populate("#poll", items);
+        }
+      }
+  });
+}
