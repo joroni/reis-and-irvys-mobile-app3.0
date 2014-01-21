@@ -1,10 +1,10 @@
 /**
  * Implements DrupalGap's template_info() hook.
  */
-function easystreet3_info() {
+function mydrupalgap_info() {
   try {
     var theme = {
-      "name":"easystreet3",
+      "name":"mydrupalgap",
       "regions":{
         "header":{
           "attributes":{

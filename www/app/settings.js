@@ -52,25 +52,28 @@ drupalgap.settings.clean_urls = false; // Setting to false is recommended.
 
 // App Title
 
-drupalgap.settings.title = 'DrupalGap';
+drupalgap.settings.title = 'Reis and Irvys';
 
  
 
 // App Front Page
 
+//drupalgap.settings.front = 'dashboard';
+
 drupalgap.settings.front = 'dashboard';
 
-
+// Theme
+drupalgap.settings.theme = 'my_theme';
 
 // Theme
 
-drupalgap.settings.theme = 'easystreet3';
+//drupalgap.settings.theme = 'easystreet3';
 
 
 
 // Logo
 
-drupalgap.settings.logo = 'themes/easystreet3/images/logo.png';
+drupalgap.settings.logo = 'themes/my_theme/images/logo.png';
 
 
 
@@ -117,6 +120,7 @@ drupalgap.modules.contrib = [
 drupalgap.modules.custom = [
 
   /*{name:'example'},*/
+    {name:'my_module'},
 
 ];
 
@@ -132,6 +136,13 @@ drupalgap.settings.menus = {};
 
 
 
+drupalgap.settings.menus['my_menu'] = {
+  links:[
+    {title:'Food', path:'food'},
+    {title:'Beverage', path:'beverage'}
+  ]
+};
+
 // User Menu Anonymous
 
 drupalgap.settings.menus['user_menu_anonymous'] = {
@@ -140,8 +151,12 @@ drupalgap.settings.menus['user_menu_anonymous'] = {
 
     {title:'Login','path':'user/login'},
 
-    {title:'Register','path':'user/register'}
-
+   /* {title:'Register','path':'user/register'}*/
+   {title:'Register','path':'http://m.reisandirvys.com/user', options:{
+      InAppBrowser:true
+    }
+   
+	  }
   ]
 
 };
@@ -154,25 +169,49 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
 
   links:[
 
-    {title:'My Account','path':'user'},
+    {title:'My Account','path':'user/'},
+	/* {title:'Vote', path:'food'},*/
+	
+  /*  {title:'Beverage', path:'beverage'},*/
+ 
+   {title:'Vote','path':'http://m.reisandirvys.com/node/2/', options:{
+      InAppBrowser:true
+    }
+	
+   },
 
-   {title:'Vote','path':'http://m.reisandirvys.com/poll',
-   options:{
-      InAppBrowser:true
-    }
- 	},
-	{title:'Vote','path':'/node/2.html',
-    options:{
-      InAppBrowser:true
-    }
- 	},
-	{title:'Logout','path':'user/logout'}
+   
+  {title:'Logout','path':'user/logout'}
   ]
 
 };
 
 
+
 // Main Menu
+
+/*drupalgap.settings.menus['main_menu'] = {
+  links:[
+    {
+      title:'About',
+      path:'node/123',
+      options:{
+        attributes:{
+          'data-icon':'info'
+        }
+      }
+    },
+    {
+      title:'Profile',
+      path:'user/1',
+      options:{
+        attributes:{
+          'data-icon':'star'
+        }
+      }
+    },
+  ]
+};*/
 
 drupalgap.settings.menus['main_menu'] = {
 
@@ -230,6 +269,24 @@ drupalgap.settings.menus['main_menu'] = {
 
       }
 
+    },
+	{
+      title:'About',
+      path:'node/123',
+      options:{
+        attributes:{
+          'data-icon':'info'
+        }
+      }
+    },
+    {
+      title:'Profile',
+      path:'user/1',
+      options:{
+        attributes:{
+          'data-icon':'star'
+        }
+      }
     }
 
   ]
@@ -243,8 +300,102 @@ drupalgap.settings.menus['main_menu'] = {
  * Blocks - http://drupalgap.org/node/83 |
 
  ****************************************/
-
 drupalgap.settings.blocks = {};
+
+
+drupalgap.settings.blocks.my_theme = {
+  top:{
+    logo:{} /* drupalgap's logo system block */
+  },
+  header:{
+    title:{} /* drupalgap's title system block */
+  },
+  navigation:{
+
+/***************************************/
+
+    user_menu_anonymous:{
+
+      roles:{
+
+        value:['anonymous user'],
+
+        mode:'include',
+
+      }
+
+    },
+
+    user_menu_authenticated:{
+
+      roles:{
+
+        value:['authenticated user'],
+
+        mode:'include',
+
+      }
+
+    }
+
+  },
+
+  sub_navigation:{
+
+    main_menu:{
+
+      roles:{
+
+        value:['administrator'],
+
+        mode:'include',
+
+      }
+
+    },
+
+    primary_local_tasks:{},
+
+
+/***************************************/
+
+    /* ... other blocks ... */
+
+  /*  my_menu:{},*/
+
+    /* ... other blocks ... */
+
+  },
+
+   content:{
+
+    /* ... */
+
+    /* My Custom Block */
+/*    my_custom_block:{
+
+   
+
+      pages:{
+        value:['user/login', 'user/register'],
+        mode:'include'
+      },
+
+	  
+    },*/
+
+    /* ... */
+ main:{},
+
+  },
+  footer:{
+	  my_custom_block:{},
+    //powered_by:{} /* drupalgap's 'powered by' block */
+  }
+};
+
+
+/******************************************************************************************** BLOCKS */
 
 
 
@@ -328,13 +479,34 @@ drupalgap.settings.blocks.easystreet3 = {
 
 drupalgap.settings.menus.regions = {};
 
-
+/*drupalgap.settings.menus.regions['header'] = {  
+  links:[
+    {
+      title:'Order',
+      path:'food_order',
+      options:{"attributes":{"data-icon":"add", "class":"ui-btn-right"}},
+      pages:{
+        value:['food'],
+        mode:'include',
+      }
+    }
+  ]
+};*/
 
 // Header Region Links
 
 drupalgap.settings.menus.regions['header'] = {
 
   links:[
+  {
+     /* title:'Order',*/
+      path:'food_order',
+      options:{"attributes":{"data-icon":"add", "class":"ui-btn-right"}},
+      pages:{
+        value:['food'],
+        mode:'include',
+      }
+    },
 
     /* Home Button */
 
@@ -482,21 +654,3 @@ drupalgap.settings.cache.entity = {
 
 
 
-/**
- * Pageshow callback.
- */
-function poll_custom_page_pageshow() {
-  drupalgap.views_datasource.call({
-      'path':'poll', /* the path to the View's JSON page display */
-      'success':function(data){
-        if (data.nodes.length > 0) {
-          var items = [];
-          $.each(data.nodes, function(index, object){
-              var node = object.node;
-              items.push(l(node.title, 'node/' + node.nid));
-          });
-          drupalgap_item_list_populate("#poll", items);
-        }
-      }
-  });
-}
