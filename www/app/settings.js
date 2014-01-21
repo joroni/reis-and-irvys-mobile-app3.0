@@ -156,12 +156,12 @@ drupalgap.settings.menus['user_menu_authenticated'] = {
 
     {title:'My Account','path':'user'},
 
-   {title:'Vote','path':'/poll',
+   {title:'Vote','path':'http://http://m.reisandirvys.com/poll',
    options:{
       InAppBrowser:true
     }
  	},
-	{title:'Vote','path':'/node/2',
+	{title:'Vote','path':'/node/2.html',
     options:{
       InAppBrowser:true
     }
